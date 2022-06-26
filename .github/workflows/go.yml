@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        package-dir: ['hello', 'integers', 'iteration']
+        package-dir: ['hello', 'integers', 'iteration', 'array']
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
