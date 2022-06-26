@@ -9,6 +9,9 @@ on:
 jobs:
 
   build:
+    strategy:
+      matrix:
+        package-dir: ['hello', 'integers', 'iteration']
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -19,7 +22,7 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -v ./...
+      run: ${{ matrix.package-dir }} && go build -v ./...
 
     - name: Test
-      run: go test -v ./...
+      run: ${{ matrix.package-dir }} && go test -v ./...
